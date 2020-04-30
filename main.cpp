@@ -59,11 +59,16 @@ int main()
 	//double baseAngle = base.getRotation();
 
 	float speed = .25;
-	Tank tanky = Tank(100, 100);
+	Tank tanky = Tank(100, 100, 'r');
+	Tank tanky2 = Tank(1180, 620, 'g');
+	//sf::CircleShape ball1(10, 10);
+
 	while (window.isOpen())
 	{
 		tanky.setBaseAngle();
 		tanky.setCannonAngle();
+		tanky2.setBaseAngle();
+		tanky2.setCannonAngle();
 		//double baseAngle = (base.getRotation() * PI /180) + PI / 2;
 		
 		//Move the ball
@@ -159,6 +164,45 @@ int main()
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))
 		{
+			//fire(tanky.getBase().getPosition().x, tanky.getBase().getPosition().y, (tanky.getCannon().getRotation() * PI / 180) + PI / 2, ball1);
+		}
+
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::J))
+		{
+			tanky2.rotate(-1);
+			//base.rotate(-.125);
+			//printf(" %.2lf", base.getRotation());
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::L))
+		{
+			tanky2.rotate(1);
+			//base.rotate(.125);
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::I))
+		{
+			tanky2.move(speed, 1);
+			//	base.move(speed * ::cos(baseAngle), speed * ::sin(baseAngle));
+			//	cannon.setPosition(base.getPosition());
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::K))
+		{
+			tanky2.move(speed, -1);
+			//	base.move(speed * ::cos(baseAngle) * -1, speed * ::sin(baseAngle) * -1);
+			//	cannon.setPosition(base.getPosition());
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::O))
+		{
+			tanky2.rotateCannon(1);
+			//	cannon.rotate(.125);
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::U))
+		{
+			tanky2.rotateCannon(-1);
+			//cannon.rotate(-.125);
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::H))
+		{
 
 		}
 		while (window.pollEvent(event))
@@ -173,7 +217,10 @@ int main()
 		//window.draw(cannon);
 		//tanky.draww(window);
 		window.draw(tanky.getBase());
+		window.draw(ball1);
 		window.draw(tanky.getCannon());
+		window.draw(tanky2.getBase());
+		window.draw(tanky2.getCannon());
 		/*window.draw(ground1);
 		window.draw(ground2);
 		window.draw(player);

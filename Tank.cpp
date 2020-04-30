@@ -36,11 +36,14 @@ sf::RectangleShape Tank::getCannon()
 {
 	return cannon;
 }
-Tank::Tank(int x, int y)
+Tank::Tank(int x, int y, char c)
 {
     base.setSize(sf::Vector2f(40,50));
 	//sf::RectangleShape base(sf::Vector2f(40, 50));
-	base.setFillColor(sf::Color::Red);
+	if(c == 'r')
+		base.setFillColor(sf::Color::Red);
+	if(c =='g')
+		base.setFillColor(sf::Color::Green);
 	base.setOrigin(20, 25);
 	base.setPosition(x, y);
 

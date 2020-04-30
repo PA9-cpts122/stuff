@@ -9,7 +9,7 @@ private:
 	sf::RectangleShape base;
 	sf::RectangleShape cannon;
 public:
-	Tank(int x, int y);
+	Tank(int x, int y, char c);
 	void setBaseAngle();
 	void move(double speed, int dir);
 	void rotate(int dir);
