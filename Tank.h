@@ -15,6 +15,7 @@ public:
 	void rotate(int dir);
 	void rotateCannon(int dir);
 	void setCannonAngle();
+	void draww(sf::RenderWindow window);
 	sf::RectangleShape getBase();
 	sf::RectangleShape getCannon();
 };

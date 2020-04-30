@@ -53,8 +53,8 @@ int main()
 	cannon.setFillColor(sf::Color::Yellow);
 	cannon.setOrigin(5, 40);
 	cannon.setPosition(640, 360);
-	
 	*/
+
 	sf::Event event;
 	//double baseAngle = base.getRotation();
 
@@ -138,19 +138,19 @@ int main()
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		{
 			tanky.move(speed, 1);
-			//base.move(speed * ::cos(baseAngle), speed * ::sin(baseAngle));
-			//cannon.setPosition(base.getPosition());
+		//	base.move(speed * ::cos(baseAngle), speed * ::sin(baseAngle));
+		//	cannon.setPosition(base.getPosition());
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		{
 			tanky.move(speed, -1);
-			//base.move(speed * ::cos(baseAngle) * -1, speed * ::sin(baseAngle) * -1);
-			//cannon.setPosition(base.getPosition());
+		//	base.move(speed * ::cos(baseAngle) * -1, speed * ::sin(baseAngle) * -1);
+		//	cannon.setPosition(base.getPosition());
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
 		{
 			tanky.rotateCannon(1);
-			//cannon.rotate(.125);
+		//	cannon.rotate(.125);
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
 		{
@@ -171,6 +171,7 @@ int main()
 		window.clear();
 		//window.draw(base);
 		//window.draw(cannon);
+		//tanky.draww(window);
 		window.draw(tanky.getBase());
 		window.draw(tanky.getCannon());
 		/*window.draw(ground1);

@@ -6,11 +6,10 @@ void Tank::setBaseAngle()
 }
 void Tank::move(double speed, int dir)
 {
-	base.move(speed * ::cos(baseAngle) * dir, speed * ::sin(baseAngle));
+	base.move(speed * ::cos(baseAngle) * dir, speed * ::sin(baseAngle) * dir);
 	cannon.setPosition(base.getPosition());
 
 }
-
 void Tank::rotate(int dir)
 {
 	base.rotate(.125 * dir); 
@@ -24,6 +23,11 @@ void Tank::setCannonAngle()
 {
 	cannonAngle = (cannon.getRotation() * PI / 180) + PI / 2;
 }
+void Tank::draww(sf::RenderWindow window)
+{
+	window.draw(base);
+	window.draw(cannon);
+}
 sf::RectangleShape Tank::getBase()
 {
 	return base;
@@ -34,13 +38,13 @@ sf::RectangleShape Tank::getCannon()
 }
 Tank::Tank(int x, int y)
 {
-	//sf::RectangleShape base({ 40, 50 });
-	sf::RectangleShape base(sf::Vector2f(40, 50));
+    base.setSize(sf::Vector2f(40,50));
+	//sf::RectangleShape base(sf::Vector2f(40, 50));
 	base.setFillColor(sf::Color::Red);
 	base.setOrigin(20, 25);
 	base.setPosition(x, y);
 
-	sf::RectangleShape cannon(sf::Vector2f(10, 45));
+	cannon.setSize(sf::Vector2f(10, 45));
 	cannon.setFillColor(sf::Color::Yellow);
 	cannon.setOrigin(5, 40);
 	cannon.setPosition(x, y);
